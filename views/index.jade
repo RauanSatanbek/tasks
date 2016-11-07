@@ -1,0 +1,26 @@
+extends layout
+
+block content
+	form(method='POST', action='/api/tasks/create')
+		h2 Creator
+		select(name='creator')
+			each user in users
+				option(value= user._id) #{user.name}
+		h2 Perfomer
+		select(name='perfomer')
+			each user in users
+				option(value= user._id) #{user.name}
+		input(type='text', placeholder='name', name='name')
+		input(type='text', placeholder='description', name='description')
+		h2 Auditor
+		select(name='auditor')
+			each user in users
+				option(value= user._id) #{user.name}
+		h2 Responsible
+		select(name='responsible')
+			each user in users
+				option(value= user._id) #{user.name}
+		input(type='checkbox', name='required')
+		input(type='submit')
+	p #{users}
+	
